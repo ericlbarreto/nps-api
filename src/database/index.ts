@@ -6,7 +6,8 @@ export const AppDataSource = new DataSource({
     migrations: [
         'src/database/migrations/*.ts',
       ],
-    entities: ["./src/models/**.ts"]
+    entities: ["./src/models/**.ts"],
+    logging: true
 })
 
 AppDataSource.initialize()
