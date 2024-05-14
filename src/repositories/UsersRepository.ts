@@ -1,6 +1,4 @@
-import { User } from "../models/User";
 import { AppDataSource } from "../database";
+import { User } from "../models/User";
 
-export const UserRepository = AppDataSource.getRepository(User).extend({
-
-})
+export const UserRepository = AppDataSource.getRepository(User).extend({})

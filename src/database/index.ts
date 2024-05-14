@@ -10,6 +10,7 @@ export const AppDataSource = new DataSource({
     logging: true
 })
 
+
 AppDataSource.initialize()
     .then(() => {
         console.log("Data Source has been initialized!")
@@ -17,3 +18,13 @@ AppDataSource.initialize()
     .catch((err) => {
         console.error("Error during Data Source initialization", err)
     })
+
+// export default async (): Promise<Connection> => {
+//     const defaultOptions = await getConnectionOptions();
+
+//     return createConnection(
+//         Object.assign(defaultOptions, {
+//             database: process.env.NODE_ENV === 'test' ? "" : defaultOptions.database
+//         })
+//     )
+// }
