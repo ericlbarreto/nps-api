@@ -1,14 +1,11 @@
 import { Request, Response } from "express";
-import { User } from "../models/User";
-import { AppDataSource } from "../database";
+import { UserRepository } from "../repositories/UsersRepository";
 
 class UserController {
     async create(request: Request, response: Response) {
         const { name, email } = request.body;
 
-        const usersRepository = AppDataSource.getRepository(User);
-
-        const userAlreadyExists = await usersRepository.findOne({
+        const userAlreadyExists = await UserRepository.findOne({
             where: {
                 email: email
             }
@@ -20,9 +17,9 @@ class UserController {
             });
         }
 
-        const user = usersRepository.create({ name, email })
+        const user = UserRepository.create({ name, email })
 
-        await usersRepository.save(user);
+        await UserRepository.save(user);
 
         return response.json(user);
     }
